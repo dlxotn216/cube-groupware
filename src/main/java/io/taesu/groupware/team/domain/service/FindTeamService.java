@@ -9,5 +9,5 @@ import io.taesu.groupware.team.domain.model.Team;
  * @since 2018-12-17
  */
 public interface FindTeamService {
-	Team findTeamWithMembers(Long teamkey);
+	Team findTeamWithMembers(Long key);
 }

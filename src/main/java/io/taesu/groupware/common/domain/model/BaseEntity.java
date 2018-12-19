@@ -1,6 +1,6 @@
 package io.taesu.groupware.common.domain.model;
 
-import io.taesu.groupware.common.application.model.BaseDto;
+import io.taesu.groupware.common.interfaces.model.BaseDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

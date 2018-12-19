@@ -1,6 +1,9 @@
-package io.taesu.groupware.team.application.model;
+package io.taesu.groupware.team.interfaces.model;
 
-import io.taesu.groupware.common.application.model.BaseDto;
+import io.taesu.groupware.common.interfaces.model.BaseDto;
+import io.taesu.groupware.team.domain.model.Team;
+import io.taesu.groupware.team.domain.model.TeamMember;
+import io.taesu.groupware.user.domain.model.User;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.util.CollectionUtils;
@@ -31,5 +34,12 @@ public class AddTeamRequest extends BaseDto {
 		return CollectionUtils.isEmpty(this.newMemberKeys)
 				? Collections.emptyList()
 				: this.newMemberKeys;
+	}
+	
+	public static TeamMember from(Long teamKey, Long userKey){
+		return TeamMember.builder()
+				.user(User.builder().key(userKey).build())
+				.team(Team.builder().key(teamKey).build())
+				.build();
 	}
 }

@@ -17,7 +17,7 @@ import javax.persistence.*;
  * @project groupware
  * @since 2018-12-14
  */
-@Entity(name = "TEAM_MEMBER")
+@Entity(name = "TeamMember")
 @Table(uniqueConstraints = {
 		@UniqueConstraint(columnNames = {"TEAM_KEY", "USER_KEY", "DEL_FLAG"})
 })
@@ -53,11 +53,11 @@ public class TeamMember extends BaseEntity {
 		this.manager = manager == null ? false : manager;
 	}
 	
-	public void setTeamManager(){
+	void setTeamManager(){
 		this.manager = true;
 	}
 	
-	public void unsetTeamManager(){
+	void unsetTeamManager(){
 		this.manager = false;
 	}
 }

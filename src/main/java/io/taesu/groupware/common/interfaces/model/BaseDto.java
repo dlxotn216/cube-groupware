@@ -1,4 +1,4 @@
-package io.taesu.groupware.common.application.model;
+package io.taesu.groupware.common.interfaces.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

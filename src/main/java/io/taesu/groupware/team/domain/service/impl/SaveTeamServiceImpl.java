@@ -2,14 +2,12 @@ package io.taesu.groupware.team.domain.service.impl;
 
 import io.taesu.groupware.team.domain.model.Team;
 import io.taesu.groupware.team.domain.model.TeamMember;
+import io.taesu.groupware.team.domain.repository.TeamMemberRepository;
 import io.taesu.groupware.team.domain.repository.TeamRepository;
 import io.taesu.groupware.team.domain.service.SaveTeamService;
-import io.taesu.groupware.user.domain.model.User;
-import io.taesu.groupware.user.domain.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author Lee Tae Su
@@ -20,23 +18,20 @@ import java.util.stream.Collectors;
 @Service
 public class SaveTeamServiceImpl implements SaveTeamService {
 	private TeamRepository teamRepository;
-	private UserRepository userRepository;
+	private TeamMemberRepository teamMemberRepository;
 	
-	public SaveTeamServiceImpl(TeamRepository teamRepository, UserRepository userRepository) {
+	public SaveTeamServiceImpl(TeamRepository teamRepository, TeamMemberRepository teamMemberRepository) {
 		this.teamRepository = teamRepository;
-		this.userRepository = userRepository;
+		this.teamMemberRepository = teamMemberRepository;
 	}
 	
 	@Override
-	public List<User> saveMembers(Long teamKey, List<Long> memberKeys) {
-		Team team = this.teamRepository.findById(teamKey).orElseThrow(IllegalArgumentException::new);
-		
-		team.addTeamMembers(this.userRepository.findAllById(memberKeys)
-				.stream()
-				.map(member -> TeamMember.builder().team(team).user(member).build())
-				.collect(Collectors.toList()));
+	public List<TeamMember> saveMembers(Long key, List<TeamMember> teamMembers) {
+		Team team = this.teamRepository.findById(key).orElseThrow(IllegalArgumentException::new);
+		team.addTeamMembers(teamMembers);
 		save(team);
-		return this.userRepository.findAllById(memberKeys);
+		
+		return this.teamMemberRepository.findAllByTeamKey(key);
 	}
 	
 	@Override

@@ -1,6 +1,7 @@
 package io.taesu.groupware.team.domain.service;
 
 import io.taesu.groupware.team.domain.model.Team;
+import io.taesu.groupware.team.domain.model.TeamMember;
 import io.taesu.groupware.user.domain.model.User;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
  * @since 2018-12-17
  */
 public interface SaveTeamService {
-	List<User> saveMembers(Long teamkey, List<Long> memberKeys);
+	List<TeamMember> saveMembers(Long key, List<TeamMember> teamMembers);
 	
 	Team save(Team team);
 }

@@ -1,6 +1,6 @@
-package io.taesu.groupware.team.application.model;
+package io.taesu.groupware.team.interfaces.model;
 
-import io.taesu.groupware.common.application.model.BaseDto;
+import io.taesu.groupware.common.interfaces.model.BaseDto;
 import io.taesu.groupware.team.domain.model.Team;
 import io.taesu.groupware.user.domain.model.User;
 import lombok.AllArgsConstructor;

@@ -19,7 +19,7 @@ import java.util.Optional;
  * @project groupware
  * @since 2018-12-14
  */
-@Entity(name = "TEAM")
+@Entity(name = "Team")
 @Getter
 @Setter
 @Audited
@@ -42,8 +42,9 @@ public class Team extends BaseEntity {
 	private List<TeamMember> teamMembers = new ArrayList<>();
 	
 	@Builder
-	public Team(String id, String name, Boolean deleted, String reason, String description) {
+	public Team(Boolean deleted, String reason, String description, Long key, String id, String name) {
 		super(deleted, reason, description);
+		this.key = key;
 		this.id = id;
 		this.name = name;
 		this.teamMembers = new ArrayList<>();

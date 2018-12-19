@@ -16,7 +16,7 @@ import javax.persistence.*;
  * @project groupware
  * @since 2018-12-14
  */
-@Entity(name = "USER")
+@Entity(name = "User")
 @Getter
 @Setter
 @Audited
@@ -43,8 +43,9 @@ public class User extends BaseEntity {
 	private String phone;
 	
 	@Builder
-	public User(Boolean deleted, String reason, String description, String id, String name, String email, String phone) {
+	public User(Boolean deleted, String reason, String description, Long key, String id, String name, String email, String phone) {
 		super(deleted, reason, description);
+		this.key = key;
 		this.id = id;
 		this.name = name;
 		this.email = email;
