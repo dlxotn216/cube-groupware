@@ -19,11 +19,19 @@ public class VacationReason {
 	@Column(name = "VACATION_REASON")
 	private String reason;
 	
+	@Column(name = "VACATION_REASON_ETC")
+	private String reasonEtc;
+	
 	@Column(name = "EVIDENCE")
 	private String evidence;
 	
-	public VacationReason(String reason, String evidence) {
+	@Column(name = "EVIDENCE_ETC")
+	private String evidenceEtc;
+	
+	public VacationReason(String reason, String reasonEtc, String evidence, String evidenceEtc) {
 		this.reason = reason;
+		this.reasonEtc = reasonEtc;
 		this.evidence = evidence;
+		this.evidenceEtc = evidenceEtc;
 	}
 }

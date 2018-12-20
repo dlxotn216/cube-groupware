@@ -39,6 +39,12 @@ public class Vacation extends BaseEntity {
 	@JoinColumn(name = "APPROVER")
 	private TeamMember approver;
 	
+	@Column
+	private String teamName;
+	
+	@Column
+	private String requesterName;
+	
 	@Enumerated(value = EnumType.STRING)
 	@Column(name = "VACATION_TYPE")
 	private VacationType vacationType;
